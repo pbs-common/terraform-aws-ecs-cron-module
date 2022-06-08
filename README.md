@@ -6,7 +6,7 @@
 
 ```hcl
 module "cron" {
-    source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=0.0.1"
+    source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z"
 }
 ```
 
@@ -22,7 +22,7 @@ Integrate this module like so:
 
 ```hcl
 module "cron" {
-  source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=0.0.1"
+  source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z"
 
   # Tagging Parameters
   organization = var.organization
@@ -41,7 +41,7 @@ module "cron" {
 
 If this repo is added as a subtree, then the version of the module should be close to the version shown here:
 
-`0.0.1`
+`x.y.z`
 
 Note, however that subtrees can be altered as desired within repositories.
 
