@@ -181,3 +181,9 @@ variable "entrypoint" {
   default     = null
   type        = list(string)
 }
+
+variable "input" {
+  description = "(optional) input to pass to the container as an array. e.g. {\"containerOverrides\": [{\"name\": \"name-of-container-to-override\",\"command\": [\"bin/console\", \"scheduled-task\"]}]}. If null, does not set an input in the task definition."
+  default     = null
+  type        = string
+}

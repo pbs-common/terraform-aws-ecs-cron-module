@@ -24,4 +24,6 @@ resource "aws_cloudwatch_event_target" "event_target" {
       subnets         = local.subnets
     }
   }
+
+  input = var.input
 }
