@@ -6,7 +6,7 @@
 
 ```hcl
 module "cron" {
-    source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=0.0.2"
+    source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z"
 }
 ```
 
@@ -22,7 +22,7 @@ Integrate this module like so:
 
 ```hcl
 module "cron" {
-  source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=0.0.2"
+  source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z"
 
   # Tagging Parameters
   organization = var.organization
@@ -41,7 +41,7 @@ module "cron" {
 
 If this repo is added as a subtree, then the version of the module should be close to the version shown here:
 
-`0.0.2`
+`x.y.z`
 
 Note, however that subtrees can be altered as desired within repositories.
 
@@ -115,6 +115,7 @@ Below is automatically generated documentation on this Terraform module using [t
 | <a name="input_event_rule_name"></a> [event\_rule\_name](#input\_event\_rule\_name) | Name of the CloudWatch Event Rule. Will default to name if not defined. | `string` | `null` | no |
 | <a name="input_image_repo"></a> [image\_repo](#input\_image\_repo) | Image repo. e.g. image\_repo = hello-world --> hello-world:image\_tag. Ignored if task\_def\_arn is defined. | `string` | `"hello-world"` | no |
 | <a name="input_image_tag"></a> [image\_tag](#input\_image\_tag) | Tag of the image. e.g. image\_tag = latest --> image\_repo:latest. Ignored if task\_def\_arn is defined. | `string` | `"latest"` | no |
+| <a name="input_input"></a> [input](#input\_input) | (optional) input to pass to the container as an array. e.g. {"containerOverrides": [{"name": "name-of-container-to-override","command": ["bin/console", "scheduled-task"]}]}. If null, does not set an input in the task definition. | `string` | `null` | no |
 | <a name="input_is_enabled"></a> [is\_enabled](#input\_is\_enabled) | (optional) is enabled | `bool` | `true` | no |
 | <a name="input_launch_type"></a> [launch\_type](#input\_launch\_type) | The launch type on which to run your service | `string` | `"FARGATE"` | no |
 | <a name="input_memory_reservation"></a> [memory\_reservation](#input\_memory\_reservation) | (optional) memory reservation for task | `number` | `512` | no |
