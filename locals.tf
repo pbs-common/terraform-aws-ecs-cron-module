@@ -12,6 +12,7 @@ locals {
   ssm_path               = var.ssm_path != null ? var.ssm_path : "/${var.environment}/${local.name}/"
   create_cluster         = var.cluster == null
   cluster_arn            = local.create_cluster ? module.cluster[0].arn : data.aws_ecs_cluster.cluster[0].arn
+  task_arn               = var.task_def_arn != null ? var.task_def_arn : module.task[0].arn
 
   creator = "terraform"
 
