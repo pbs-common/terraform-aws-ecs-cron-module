@@ -1,13 +1,13 @@
-# PBS TF ecs cron module
+# PBS TF ECS Cron Module
 
 ## Installation
 
 ### Using the Repo Source
 
+Use this URL for the source of the module. See the usage examples below for more details.
+
 ```hcl
-module "cron" {
-    source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=0.1.0"
-}
+github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z
 ```
 
 ### Alternative Installation Methods
@@ -22,7 +22,7 @@ Integrate this module like so:
 
 ```hcl
 module "cron" {
-  source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=0.1.0"
+  source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z"
 
   # Tagging Parameters
   organization = var.organization
@@ -41,7 +41,7 @@ module "cron" {
 
 If this repo is added as a subtree, then the version of the module should be close to the version shown here:
 
-`0.1.0`
+`x.y.z`
 
 Note, however that subtrees can be altered as desired within repositories.
 
@@ -64,14 +64,14 @@ Below is automatically generated documentation on this Terraform module using [t
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.17.1 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.21.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_cluster"></a> [cluster](#module\_cluster) | github.com/pbs/terraform-aws-ecs-cluster-module | 0.0.1 |
-| <a name="module_task"></a> [task](#module\_task) | github.com/pbs/terraform-aws-ecs-task-definition-module | 0.0.1 |
+| <a name="module_task"></a> [task](#module\_task) | github.com/pbs/terraform-aws-ecs-task-definition-module | 0.0.2 |
 
 ## Resources
 
@@ -97,7 +97,7 @@ Below is automatically generated documentation on this Terraform module using [t
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_environment"></a> [environment](#input\_environment) | Environment (sharedtools, dev, staging, prod) | `string` | n/a | yes |
+| <a name="input_environment"></a> [environment](#input\_environment) | Environment (sharedtools, dev, staging, qa, prod) | `string` | n/a | yes |
 | <a name="input_organization"></a> [organization](#input\_organization) | Organization using this module. Used to prefix tags so that they are easily identified as being from your organization | `string` | n/a | yes |
 | <a name="input_product"></a> [product](#input\_product) | Tag used to group resources according to product | `string` | n/a | yes |
 | <a name="input_repo"></a> [repo](#input\_repo) | Tag used to point to the repo using this module | `string` | n/a | yes |

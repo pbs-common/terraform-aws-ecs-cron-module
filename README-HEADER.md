@@ -1,13 +1,13 @@
-# PBS TF ecs cron module
+# PBS TF ECS Cron Module
 
 ## Installation
 
 ### Using the Repo Source
 
+Use this URL for the source of the module. See the usage examples below for more details.
+
 ```hcl
-module "cron" {
-    source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z"
-}
+github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z
 ```
 
 ### Alternative Installation Methods

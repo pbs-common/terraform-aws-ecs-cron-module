@@ -1,9 +1,9 @@
 output "task_arn" {
   description = "Task ARN"
-  value       = local.task_arn
+  value       = module.cron.task_arn
 }
 
 output "cron" {
   description = "Cron"
-  value       = var.cron
+  value       = module.cron.cron
 }
