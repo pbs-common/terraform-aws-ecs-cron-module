@@ -20,7 +20,18 @@ func testECSCron(t *testing.T, variant string) {
 
 	defer terraform.Destroy(t, terraformOptions)
 
-	terraform.InitAndApply(t, terraformOptions)
+	terraform.Init(t, terraformOptions)
+
+	if variant == "task-def" {
+		taskDefTerraformOptions := &terraform.Options{
+			TerraformDir: terraformDir,
+			LockTimeout:  "5m",
+			Targets:      []string{"module.task_def"},
+		}
+		terraform.Apply(t, taskDefTerraformOptions)
+	}
+
+	terraform.Apply(t, terraformOptions)
 
 	taskARN := terraform.Output(t, terraformOptions, "task_arn")
 	cron := terraform.Output(t, terraformOptions, "cron")
