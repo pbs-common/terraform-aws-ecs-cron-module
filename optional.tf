@@ -16,12 +16,6 @@ variable "event_rule_description" {
   type        = string
 }
 
-variable "container_port" {
-  description = "Port the container will expose"
-  default     = 80
-  type        = number
-}
-
 variable "launch_type" {
   description = "The launch type on which to run your service"
   default     = "FARGATE"
@@ -43,18 +37,6 @@ variable "cluster" {
 variable "task_def_arn" {
   description = "Task definition ARN. If null, task will be created with default values, except that image_repo and image_tag may be defined."
   default     = null
-  type        = string
-}
-
-variable "image_repo" {
-  description = "Image repo. e.g. image_repo = hello-world --> hello-world:image_tag. Ignored if task_def_arn is defined."
-  default     = "hello-world"
-  type        = string
-}
-
-variable "image_tag" {
-  description = "Tag of the image. e.g. image_tag = latest --> image_repo:latest. Ignored if task_def_arn is defined."
-  default     = "latest"
   type        = string
 }
 
@@ -82,20 +64,8 @@ variable "redis_sg_ids" {
   type        = set(string)
 }
 
-variable "container_name" {
-  description = "(optional) name of the primary container for this service. Defaults to local.name if null."
-  default     = null
-  type        = string
-}
-
 variable "role_policy_json" {
   description = "(optional) the policy to apply for this service. Defaults to a valid ECS role policy if null."
-  default     = null
-  type        = string
-}
-
-variable "ssm_path" {
-  description = "(optional) path to the ssm parameters you want pulled into your container during execution of the entrypoint."
   default     = null
   type        = string
 }
@@ -122,64 +92,6 @@ variable "task_family" {
   description = "(optional) task family for task. This is effectively the name of the task, without qualification of revision"
   default     = null
   type        = string
-}
-
-variable "container_definitions" {
-  description = "(optional) JSON container definitions for task"
-  default     = null
-  type        = string
-}
-
-variable "cpu_reservation" {
-  description = "(optional) CPU reservation for task"
-  default     = 256
-  type        = number
-}
-
-variable "memory_reservation" {
-  description = "(optional) memory reservation for task"
-  default     = 512
-  type        = number
-}
-
-variable "requires_compatibilities" {
-  description = "(optional) capabilities that the task requires"
-  default     = ["FARGATE"]
-  type        = set(string)
-}
-
-variable "network_mode" {
-  description = "(optional) network mode for the task"
-  default     = "awsvpc"
-  type        = string
-}
-
-variable "efs_mounts" {
-  description = "(optional) efs mount set of objects. Components should include dns_name, container_mount_point, efs_mount_point"
-  default     = []
-  type = set(object({
-    file_system_id = string
-    efs_path       = string
-    container_path = string
-  }))
-}
-
-variable "env_vars" {
-  description = "(optional) environment variables to be passed to the container. By default, only passes SSM_PATH"
-  default     = null
-  type        = set(map(any))
-}
-
-variable "command" {
-  description = "(optional) command to run in the container as an array. e.g. [\"sleep\", \"10\"]. If null, does not set a command in the task definition."
-  default     = null
-  type        = list(string)
-}
-
-variable "entrypoint" {
-  description = "(optional) entrypoint to run in the container as an array. e.g. [\"sleep\", \"10\"]. If null, does not set an entrypoint in the task definition."
-  default     = null
-  type        = list(string)
 }
 
 variable "input" {

@@ -1,6 +1,6 @@
 module "task" {
   count  = var.task_def_arn == null ? 1 : 0
-  source = "github.com/pbs/terraform-aws-ecs-task-definition-module?ref=0.0.2"
+  source = "github.com/pbs/terraform-aws-ecs-task-definition-module?ref=0.2.0"
 
   image_repo = var.image_repo
   image_tag  = var.image_tag
@@ -23,6 +23,13 @@ module "task" {
   entrypoint = var.entrypoint
 
   ssm_path = var.ssm_path
+
+  mesh_name        = var.mesh_name
+  virtual_node     = var.virtual_node
+  virtual_gateway  = var.virtual_gateway
+  envoy_tag        = var.envoy_tag
+  use_xray_sidecar = var.use_xray_sidecar
+  runtime_platform = var.runtime_platform
 
   organization = var.organization
   environment  = var.environment
