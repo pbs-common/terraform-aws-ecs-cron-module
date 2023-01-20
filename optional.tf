@@ -52,18 +52,6 @@ variable "vpc_id" {
   type        = string
 }
 
-variable "mysql_sg_ids" {
-  description = "MySQL DB Security group IDs"
-  default     = []
-  type        = set(string)
-}
-
-variable "redis_sg_ids" {
-  description = "Redis Security group IDs"
-  default     = []
-  type        = set(string)
-}
-
 variable "role_policy_json" {
   description = "(optional) the policy to apply for this service. Defaults to a valid ECS role policy if null."
   default     = null
