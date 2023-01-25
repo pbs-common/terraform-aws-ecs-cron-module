@@ -1,7 +1,5 @@
 locals {
   name                   = var.name != null ? var.name : var.product
-  mysql_port             = 3306
-  redis_port             = 6379
   task_family            = var.task_family != null ? var.task_family : local.name
   task_def_arn           = var.task_def_arn != null ? var.task_def_arn : module.task[0].arn
   vpc_id                 = var.vpc_id != null ? var.vpc_id : data.aws_vpc.vpc[0].id

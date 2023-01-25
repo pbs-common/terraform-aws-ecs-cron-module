@@ -7,7 +7,7 @@
 Use this URL for the source of the module. See the usage examples below for more details.
 
 ```hcl
-github.com/pbs/terraform-aws-ecs-cron-module?ref=0.2.0
+github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z
 ```
 
 ### Alternative Installation Methods
@@ -22,7 +22,7 @@ Integrate this module like so:
 
 ```hcl
 module "cron" {
-  source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=0.2.0"
+  source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z"
 
   # Tagging Parameters
   organization = var.organization
@@ -41,7 +41,7 @@ module "cron" {
 
 If this repo is added as a subtree, then the version of the module should be close to the version shown here:
 
-`0.2.0`
+`x.y.z`
 
 Note, however that subtrees can be altered as desired within repositories.
 
@@ -80,11 +80,7 @@ Below is automatically generated documentation on this Terraform module using [t
 | [aws_cloudwatch_event_rule.event_rule](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_rule) | resource |
 | [aws_cloudwatch_event_target.event_target](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_event_target) | resource |
 | [aws_security_group.task_sg](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group) | resource |
-| [aws_security_group_rule.mysql_to_task](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
-| [aws_security_group_rule.redis_to_task](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
 | [aws_security_group_rule.task_egress](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
-| [aws_security_group_rule.task_to_mysql](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
-| [aws_security_group_rule.task_to_redis](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_default_tags.common_tags](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/default_tags) | data source |
 | [aws_ecs_cluster.cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ecs_cluster) | data source |
@@ -122,11 +118,9 @@ Below is automatically generated documentation on this Terraform module using [t
 | <a name="input_launch_type"></a> [launch\_type](#input\_launch\_type) | The launch type on which to run your service | `string` | `"FARGATE"` | no |
 | <a name="input_memory_reservation"></a> [memory\_reservation](#input\_memory\_reservation) | (optional) memory reservation for task | `number` | `512` | no |
 | <a name="input_mesh_name"></a> [mesh\_name](#input\_mesh\_name) | (optional) the name for the App Mesh this task is associated with. If null, ignored | `string` | `null` | no |
-| <a name="input_mysql_sg_ids"></a> [mysql\_sg\_ids](#input\_mysql\_sg\_ids) | MySQL DB Security group IDs | `set(string)` | `[]` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of the service. Will default to product if not defined. | `string` | `null` | no |
 | <a name="input_network_mode"></a> [network\_mode](#input\_network\_mode) | (optional) network mode for the task | `string` | `"awsvpc"` | no |
 | <a name="input_platform_version"></a> [platform\_version](#input\_platform\_version) | The platform version on which to run your service | `string` | `"LATEST"` | no |
-| <a name="input_redis_sg_ids"></a> [redis\_sg\_ids](#input\_redis\_sg\_ids) | Redis Security group IDs | `set(string)` | `[]` | no |
 | <a name="input_requires_compatibilities"></a> [requires\_compatibilities](#input\_requires\_compatibilities) | (optional) capabilities that the task requires | `set(string)` | <pre>[<br>  "FARGATE"<br>]</pre> | no |
 | <a name="input_role_policy_json"></a> [role\_policy\_json](#input\_role\_policy\_json) | (optional) the policy to apply for this service. Defaults to a valid ECS role policy if null. | `string` | `null` | no |
 | <a name="input_runtime_platform"></a> [runtime\_platform](#input\_runtime\_platform) | (optional) Runtime platform for the task. Defaults to LINUX operating system family w/ CPU architecture x86\_64. | <pre>object({<br>    operating_system_family = optional(string, "LINUX")<br>    cpu_architecture        = optional(string, "X86_64")<br>  })</pre> | <pre>{<br>  "cpu_architecture": "X86_64",<br>  "operating_system_family": "LINUX"<br>}</pre> | no |
