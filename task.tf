@@ -31,6 +31,8 @@ module "task" {
   use_xray_sidecar = var.use_xray_sidecar
   runtime_platform = var.runtime_platform
 
+  awslogs_driver_mode = var.awslogs_driver_mode
+
   organization = var.organization
   environment  = var.environment
   product      = var.product

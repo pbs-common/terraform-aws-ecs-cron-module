@@ -98,6 +98,7 @@ Below is automatically generated documentation on this Terraform module using [t
 | <a name="input_organization"></a> [organization](#input\_organization) | Organization using this module. Used to prefix tags so that they are easily identified as being from your organization | `string` | n/a | yes |
 | <a name="input_product"></a> [product](#input\_product) | Tag used to group resources according to product | `string` | n/a | yes |
 | <a name="input_repo"></a> [repo](#input\_repo) | Tag used to point to the repo using this module | `string` | n/a | yes |
+| <a name="input_awslogs_driver_mode"></a> [awslogs\_driver\_mode](#input\_awslogs\_driver\_mode) | (optional) awslogs driver mode. Set this to `blocking` if you would rather have an outage than lose logs. | `string` | `"non-blocking"` | no |
 | <a name="input_cluster"></a> [cluster](#input\_cluster) | The name of the ECS Cluster this task runs in. | `string` | `null` | no |
 | <a name="input_command"></a> [command](#input\_command) | (optional) command to run in the container as an array. e.g. ["sleep", "10"]. If null, does not set a command in the task definition. | `list(string)` | `null` | no |
 | <a name="input_container_definitions"></a> [container\_definitions](#input\_container\_definitions) | (optional) JSON container definitions for task | `string` | `null` | no |
