@@ -7,7 +7,7 @@
 Use this URL for the source of the module. See the usage examples below for more details.
 
 ```hcl
-github.com/pbs/terraform-aws-ecs-cron-module?ref=2.0.0
+github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z
 ```
 
 ### Alternative Installation Methods
@@ -22,7 +22,7 @@ Integrate this module like so:
 
 ```hcl
 module "cron" {
-  source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=2.0.0"
+  source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z"
 
   # Tagging Parameters
   organization = var.organization
@@ -41,7 +41,7 @@ module "cron" {
 
 If this repo is added as a subtree, then the version of the module should be close to the version shown here:
 
-`2.0.0`
+`x.y.z`
 
 Note, however that subtrees can be altered as desired within repositories.
 
@@ -141,4 +141,5 @@ Below is automatically generated documentation on this Terraform module using [t
 | Name | Description |
 |------|-------------|
 | <a name="output_cron"></a> [cron](#output\_cron) | Cron |
+| <a name="output_sg"></a> [sg](#output\_sg) | Security Group |
 | <a name="output_task_arn"></a> [task\_arn](#output\_task\_arn) | Task ARN |
