@@ -1,6 +1,6 @@
 module "cluster" {
   count  = local.create_cluster ? 1 : 0
-  source = "github.com/pbs/terraform-aws-ecs-cluster-module?ref=0.0.18"
+  source = "github.com/pbs/terraform-aws-ecs-cluster-module?ref=0.0.19"
 
   vpc_id  = local.vpc_id
   subnets = local.subnets
