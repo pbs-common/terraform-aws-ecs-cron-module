@@ -58,6 +58,12 @@ variable "role_policy_json" {
   type        = string
 }
 
+variable "extra_role_policy_json" {
+  description = "(optional) Extra IAM policy to attach to role used for this task without replacing defaults"
+  default     = null
+  type        = string
+}
+
 variable "task_count" {
   description = "(optional) number of tasks to spin up on this schedule."
   default     = 1
