@@ -8,6 +8,7 @@ module "task" {
   role_policy_json       = local.role_policy_json
   extra_role_policy_json = var.extra_role_policy_json
 
+  name                     = local.name
   service_name             = local.name
   task_family              = local.task_family
   container_name           = var.container_name
