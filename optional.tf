@@ -93,3 +93,33 @@ variable "input" {
   default     = null
   type        = string
 }
+
+variable "retention_in_days" {
+  description = "(optional) log retention in days"
+  default     = 7
+  type        = number
+}
+
+variable "log_group_class" {
+  description = "(Optional) log class of the log group. Possible values are: STANDARD or INFREQUENT_ACCESS"
+  default     = "INFREQUENT_ACCESS"
+  type        = string
+}
+
+variable "propagate_tags" {
+  description = "(optional) Specifies whether to propagate the tags from the task definition to the task. Valid values: TASK_DEFINITION or null."
+  default     = "null"
+  type        = string
+}
+
+variable "task_execution_role_name" {
+  description = "(optional) Fixed name for the task execution IAM role. If null, a name_prefix is used instead."
+  default     = null
+  type        = string
+}
+
+variable "task_role_name" {
+  description = "(optional) Fixed name for the task IAM role. If null, a name_prefix is used instead."
+  default     = null
+  type        = string
+}

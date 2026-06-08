@@ -18,6 +18,7 @@ resource "aws_cloudwatch_event_target" "event_target" {
     task_definition_arn = local.task_def_arn
     launch_type         = var.launch_type
     platform_version    = var.platform_version
+    propagate_tags      = var.propagate_tags
 
     network_configuration {
       security_groups = [aws_security_group.task_sg.id]
