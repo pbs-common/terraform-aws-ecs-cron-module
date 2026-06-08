@@ -7,7 +7,7 @@
 Use this URL for the source of the module. See the usage examples below for more details.
 
 ```hcl
-github.com/pbs/terraform-aws-ecs-cron-module?ref=3.1.0
+github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z
 ```
 
 ### Alternative Installation Methods
@@ -22,7 +22,7 @@ Integrate this module like so:
 
 ```hcl
 module "cron" {
-  source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=3.1.0"
+  source = "github.com/pbs/terraform-aws-ecs-cron-module?ref=x.y.z"
 
   # Tagging Parameters
   organization = var.organization
@@ -41,7 +41,7 @@ module "cron" {
 
 If this repo is added as a subtree, then the version of the module should be close to the version shown here:
 
-`3.1.0`
+`x.y.z`
 
 Note, however that subtrees can be altered as desired within repositories.
 
@@ -119,12 +119,15 @@ Below is automatically generated documentation on this Terraform module using [t
 | <a name="input_input"></a> [input](#input\_input) | (optional) input to pass to the container as an array. e.g. {"containerOverrides": [{"name": "name-of-container-to-override","command": ["bin/console", "scheduled-task"]}]}. If null, does not set an input in the task definition. | `string` | `null` | no |
 | <a name="input_is_enabled"></a> [is\_enabled](#input\_is\_enabled) | (optional) is enabled | `bool` | `true` | no |
 | <a name="input_launch_type"></a> [launch\_type](#input\_launch\_type) | The launch type on which to run your service | `string` | `"FARGATE"` | no |
+| <a name="input_log_group_class"></a> [log\_group\_class](#input\_log\_group\_class) | (Optional) log class of the log group. Possible values are: STANDARD or INFREQUENT\_ACCESS | `string` | `"INFREQUENT_ACCESS"` | no |
 | <a name="input_memory_reservation"></a> [memory\_reservation](#input\_memory\_reservation) | (optional) memory reservation for task | `number` | `512` | no |
 | <a name="input_mesh_name"></a> [mesh\_name](#input\_mesh\_name) | (optional) the name for the App Mesh this task is associated with. If null, ignored | `string` | `null` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of the service. Will default to product if not defined. | `string` | `null` | no |
 | <a name="input_network_mode"></a> [network\_mode](#input\_network\_mode) | (optional) network mode for the task | `string` | `"awsvpc"` | no |
 | <a name="input_platform_version"></a> [platform\_version](#input\_platform\_version) | The platform version on which to run your service | `string` | `"LATEST"` | no |
+| <a name="input_propagate_tags"></a> [propagate\_tags](#input\_propagate\_tags) | (optional) Specifies whether to propagate the tags from the task definition to the task. Valid values: TASK\_DEFINITION or null. | `string` | `"null"` | no |
 | <a name="input_requires_compatibilities"></a> [requires\_compatibilities](#input\_requires\_compatibilities) | (optional) capabilities that the task requires | `set(string)` | <pre>[<br/>  "FARGATE"<br/>]</pre> | no |
+| <a name="input_retention_in_days"></a> [retention\_in\_days](#input\_retention\_in\_days) | (optional) log retention in days | `number` | `7` | no |
 | <a name="input_role_policy_json"></a> [role\_policy\_json](#input\_role\_policy\_json) | (optional) the policy to apply for this service. Defaults to a valid ECS role policy if null. | `string` | `null` | no |
 | <a name="input_runtime_platform"></a> [runtime\_platform](#input\_runtime\_platform) | (optional) Runtime platform for the task. Defaults to LINUX operating system family w/ CPU architecture x86\_64. | <pre>object({<br/>    operating_system_family = optional(string, "LINUX")<br/>    cpu_architecture        = optional(string, "X86_64")<br/>  })</pre> | <pre>{<br/>  "cpu_architecture": "X86_64",<br/>  "operating_system_family": "LINUX"<br/>}</pre> | no |
 | <a name="input_ssm_path"></a> [ssm\_path](#input\_ssm\_path) | (optional) path to the ssm parameters you want pulled into your container during execution of the entrypoint | `string` | `null` | no |
@@ -132,7 +135,9 @@ Below is automatically generated documentation on this Terraform module using [t
 | <a name="input_tags"></a> [tags](#input\_tags) | Extra tags | `map(string)` | `{}` | no |
 | <a name="input_task_count"></a> [task\_count](#input\_task\_count) | (optional) number of tasks to spin up on this schedule. | `number` | `1` | no |
 | <a name="input_task_def_arn"></a> [task\_def\_arn](#input\_task\_def\_arn) | Task definition ARN. If null, task will be created with default values, except that image\_repo and image\_tag may be defined. | `string` | `null` | no |
+| <a name="input_task_execution_role_name"></a> [task\_execution\_role\_name](#input\_task\_execution\_role\_name) | (optional) Fixed name for the task execution IAM role. If null, a name\_prefix is used instead. | `string` | `null` | no |
 | <a name="input_task_family"></a> [task\_family](#input\_task\_family) | (optional) task family for task. This is effectively the name of the task, without qualification of revision | `string` | `null` | no |
+| <a name="input_task_role_name"></a> [task\_role\_name](#input\_task\_role\_name) | (optional) Fixed name for the task IAM role. If null, a name\_prefix is used instead. | `string` | `null` | no |
 | <a name="input_use_xray_sidecar"></a> [use\_xray\_sidecar](#input\_use\_xray\_sidecar) | (optional) if set to null, will use the sidecar to trace the task if envoy is used, as that automatically implements tracing configs. | `bool` | `null` | no |
 | <a name="input_virtual_gateway"></a> [virtual\_gateway](#input\_virtual\_gateway) | (optional) the name of the virtual gateway associated with this task definition. If null, ignored | `string` | `null` | no |
 | <a name="input_virtual_node"></a> [virtual\_node](#input\_virtual\_node) | (optional) the name of the virtual node associated with this task definition. Ignored if virtual\_gateway set. If null, ignored | `string` | `null` | no |
