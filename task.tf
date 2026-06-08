@@ -35,6 +35,12 @@ module "task" {
 
   awslogs_driver_mode = var.awslogs_driver_mode
 
+  retention_in_days = var.retention_in_days
+  log_group_class   = var.log_group_class
+
+  task_execution_role_name = var.task_execution_role_name
+  task_role_name           = var.task_role_name
+
   organization = var.organization
   environment  = var.environment
   product      = var.product
