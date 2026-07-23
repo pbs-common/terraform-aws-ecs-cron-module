@@ -10,6 +10,15 @@ variable "image_tag" {
   type        = string
 }
 
+variable "secrets" {
+  description = "(optional) secrets to be passed to the container. By default none is passed"
+  default     = []
+  type = set(object({
+    name      = string
+    valueFrom = string
+  }))
+}
+
 variable "container_port" {
   description = "(optional) port the container is exposing"
   default     = 80
