@@ -20,6 +20,7 @@ module "task" {
   network_mode             = var.network_mode
   efs_mounts               = var.efs_mounts
   env_vars                 = var.env_vars
+  secrets                  = var.secrets
 
   command    = var.command
   entrypoint = var.entrypoint
